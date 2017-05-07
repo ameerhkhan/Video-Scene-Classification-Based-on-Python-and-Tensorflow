@@ -200,40 +200,7 @@ def main(_):
   maybe_download_and_extract()
   image = (FLAGS.image_file if FLAGS.image_file else
            os.path.join(FLAGS.model_dir, 'cropped_panda.jpg'))
-  """cap = cv2.VideoCapture('458_video.mp4')
 
-  while(cap.isOpened()):
-      ret, frame = cap.read()
-      #some calculations to retain the aspect ratio of the original video
-      #r = 100.0 / frame.shape[1]
-      #dim = (100,int(frame.shape[0] * r))
-
-      rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-      resized = cv2.resize(rgb, (480,320), interpolation = cv2.INTER_AREA)
-
-      cv2.imshow('458', resized)
-      #if cv2.waitKey(1) & 0xFF == ord('q'):#20 is the best
-      if cv2.waitKey(2) & 0xFF == ord('q'):
-          cv2.imwrite("captured.jpg", resized)
-          break
-      elif cv2.waitKey(1) & 0xFF == ord('x'):
-          #cv2.imwrite("captured.jpg", resized)
-          break
-  #cv2.imshow("captured for Analysis",resized)
-
-  cap.release()
-  cv2.destroyAllWindows()
-  input("Press Enter to RUN Analysis")
-  print(resized.dtype)
-  #print(image.dtype)
-  cv2.imshow("captured for Analysis",resized)
-  
-  resize = cv2.resize(resized, (100,100), interpolation = cv2.INTER_AREA)
-  cv2.imwrite("analysis.jpg",resize)
-  time.sleep(5)
-  #resize_str = cv2.imencode('.jpg', resize).tostring()
-  resize_str = str(resize)
-  print(type(resize_str))"""
   preds = run_inference_on_image(image) #replacing image with resized
   #print(preds)
   #print("\n"+preds[0])
