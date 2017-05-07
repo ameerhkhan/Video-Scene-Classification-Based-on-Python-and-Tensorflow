@@ -1,5 +1,5 @@
 # Video-Scene-Classification-Based-on-Python-and-Tensorflow
-Copyright [yyyy] Ameer Hamza Khan
+Copyright 2017 Ameer Hamza Khan
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -24,6 +24,20 @@ The project contains,
 
 Pre-Requisites for this program,
 1- Python 3.5.2
-2- OpenCV 3.0+
-3- TensorFlow Models Repo.
-4- ffmpeg
+2- OpenCV 3.0+.(https://pypi.python.org/pypi/opencv-python#downloads)
+3- TensorFlow (pip3 install --upgrade tensorflow)
+4- TensorFlow Models Repo. (Download/clone TensorFlow models repository (https://github.com/tensorflow/models)
+5- ffmpeg
+
+Running the program:
+###################
+Install every component required and put all program files in the same directory.
+Run classify_image.py in the TensorFlow models to install necessary files and data.
+
+After everything is installed, run the program "subprocess_learn_mod.py"
+A video will start playing based on your selection.
+
+Hit the 'Q' button to capture a frame for analysis. Be careful to choose a scene that clearly shows the main focus of the video.
+Hit 'X' to stop the video and start the analysis.
+
+Sit back and enjoy the results.
