@@ -4,7 +4,7 @@ import cv2
 import os
 import time
 
-
+#command line selection menu.
 vdo = input('Please select a file to play using a number,\n 1. 458_video.mp4\n 2. Pistol.mp4 \n 3. Typewriter \n \n')
 i = int(vdo)
 if i == 1:
@@ -18,7 +18,11 @@ else:
     vdo_loc = '458_video.mp4'
 
 print(vdo_loc)
-#possibs = ['sports car', 'pencil', 'typewriter']
+
+#No. of possibilities along with the command that is used to attach the appropriate sound to the video.
+#to add more possibilities simple extend the dictionary with the keywords that are suggested by the TensorFlow model.
+#select the keyword as the key of the dictionary and set the value of that key equal to the command.
+
 dicti = {
     'sports car': 'ffmpeg -i 458_video.mp4 -i ferrari458.mp3 -map 0:v -map 1:a -c copy -shortest output1.mp4',
     'assault rifle': 'ffmpeg -i Pistol.mp4 -i pistol_snd.mp3 -map 0:v -map 1:a -c copy -shortest output1.mp4',
@@ -54,12 +58,7 @@ cv2.destroyAllWindows()
 print("Analysis in Progress Now..")
 
 ##################################################
-#ls_outpit = subprocess.check_output(['ls','l'])
-#out_one = subprocess.check_output('python video_play.py', shell = True)
-#print((out_one).strip())
-#out_one_str = (out_one.decode("utf-8")).strip()
-#print(out_one_str)
-#out_one.kill()
+
 command = 'python classify_image_mod.py --image_file=R:\Work\ext_project\renny\models\tutorials\image\imagenet\captured.jpg'
 #out_two = subprocess.check_output('python classify_image_mod.py --image_file=R:\Work\ext_project\renny\models\tutorials\image\imagenet\captured.jpg', shell = True)
 out_two = subprocess.Popen('python classify_image_mod.py --image_file=captured.jpg',
@@ -87,35 +86,3 @@ p = subprocess.Popen("R:/Work/ext_project/renny/models/tutorials/image/imagenet/
 time.sleep(20)
 os.remove('output1.mp4')
 os.remove('captured.jpg')
-    
-
-"""if (val_str == possibs[1]):
-    print(dicti['sports car'])
-    subprocess.call(dicti['sports car'], shell=True)
-
-elif val_str == 'pencil':
-    print(dicti['pencil'])
-        
-elif val_str == 'typewriter':
-    print(dicti['typewriter'])
-else:
-    print('No sound available for '+val_str)
-"""
-"""capn = cv2.VideoCapture('output1.mp4')
-    
-while(capn.isOpened()):
-    retu, framee = capn.read()
-    #some calculations to retain the aspect ratio of the original video
-    #r = 100.0 / frame.shape[1]
-    #dim = (100,int(frame.shape[0] * r))
-    
-    #graye = cv2.cvtColor(framee, cv2.COLOR_BGR2GRAY)
-    resizede = cv2.resize(framee, (480,320), interpolation = cv2.INTER_AREA)                         
-    
-    cv2.imshow('New MUSIC Appended', resizede)
-    if cv2.waitKey(20) & 0xFF == ord('s'): #20 is the best
-458_video.mp4break
-    
-capn.release()
-cv2.destroyAllWindows()
-"""
