@@ -201,12 +201,6 @@ def main(_):
   image = (FLAGS.image_file if FLAGS.image_file else
            os.path.join(FLAGS.model_dir, 'cropped_panda.jpg'))
 
-  preds = run_inference_on_image(image) #replacing image with resized
-  #print(preds)
-  #print("\n"+preds[0])
-  preds_split = preds[0].split(",")
-  print(preds_split[0])
-
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
@@ -244,3 +238,12 @@ if __name__ == '__main__':
   )
   FLAGS, unparsed = parser.parse_known_args()
   tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
+
+  
+  
+  
+"""  preds = run_inference_on_image(image)
+  #print(preds)
+  #print("\n"+preds[0])
+  preds_split = preds[0].split(",")
+  print(preds_split[0])"""
